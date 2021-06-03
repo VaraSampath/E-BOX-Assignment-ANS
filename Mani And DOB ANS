@@ -1,0 +1,26 @@
+# mani AND DOB Problem
+from datetime import date
+#ragavi 01/01/1990,thana 21/01/1990,krishn 01/09/1990
+#thara 23/02/1994,shanmathi 25/02/1994,madhan 11/01/1993,krishna 23/01/1993
+data=input().split(',')
+req=input()
+d={}
+for i in data:
+    name,dob=i.split(' ')
+    d[name]=dob
+da,m,y=req.split('/')
+curr=365
+for i,j in d.items():
+    dd,mm,yy=j.split('/')
+
+    date1=date(int(yy),int(mm),int(dd))
+    date2=date(int(y),int(m),int(da))
+    diff=abs((date1-date2).days)
+    if diff <curr:
+        name,ans,differ=i,j,diff
+        curr=diff
+ans=ans.replace('/','-')
+if differ==0:
+    print(name,'suggested same date',ans)
+else:
+    print(name,'suggested date',ans,'with differnce',differ,'day(s) ago')
