@@ -1,0 +1,29 @@
+class WhatsApp:
+    def check(self,str):
+        a = ''
+        s = ''
+        for i in str:
+            if i.isalpha():
+                a += i
+            else:
+                s += i
+        return a,s
+
+
+
+    def shortCuts(self,str):
+        str=str.split(' ')
+        d = {'good': 'gud', 'night': 'ni8', 'too': '2o', 'you': 'u', 'are': 'r', 'eye': 'I', 'to': '2'}
+        l=''
+        for i in str:
+            a,s=self.check(i)
+            if a in d:
+                l+=d[a]+s+' '
+            else:
+                l+=a+s+' '
+        return l
+
+
+i=input('Enter the Message:')
+what=WhatsApp()
+print(what.shortCuts(i))
